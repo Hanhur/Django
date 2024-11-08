@@ -3,7 +3,6 @@ from django.http import HttpResponse, HttpResponseNotFound, HttpResponseRedirect
 from django.urls import reverse
 
 
-
 # Create your views here.
 list_of_days = {
     'monday': 'Jit nakoupit',
@@ -14,6 +13,18 @@ list_of_days = {
     'saturday': 'Zajit do kina',
     'sunday': 'Jit cvicit',
 }
+
+def index(request):
+    content = ''
+    days = list(list_of_days.keys())
+
+    content = '<ul>'
+    for one_day in days:
+        url = reverse('days_tasks', args = [one_day])
+        content += f'<li><a href="{url}">{one_day.capitalize()}</a></li>'
+    content += '</ul>'
+    
+    return HttpResponse(content)
 
 def dayNumber(request, dayinweek_number):
     days_names = list(list_of_days.keys())
@@ -27,23 +38,9 @@ def dayNumber(request, dayinweek_number):
 
 
 def dayText(request, dayinweek_string):
-    day_description = ''
-    if dayinweek_string == 'monday':
-        day_description = 'Pondeli'
-    elif dayinweek_string == 'tuesday':
-        day_description = 'Utery'
-    elif dayinweek_string == 'wednesday':
-        day_description = 'Streda'
-    elif dayinweek_string == 'thursday':
-        day_description = 'Ctvrtek'
-    elif dayinweek_string == 'friday':
-        day_description = 'Patek'
-    elif dayinweek_string == 'saturday':
-        day_description = 'Sobota'
-    elif dayinweek_string == 'sunday':
-        day_description = 'Nedele'
-    else:
-        return HttpResponseNotFound('Neexistujisi den')
-    return HttpResponse(day_description)
-
-# lesson 25
+    try:
+        task = list_of_days[dayinweek_string]
+        formated_task = f'<h1>{task}</h1>'
+        return HttpResponse(formated_task)
+    except:
+        return HttpResponseNotFound('Error, not Found')
