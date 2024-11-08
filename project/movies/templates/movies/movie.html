@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block css_files %}
+    <link rel="stylesheet" href="{% static "movies/includes/header.css" %}">
+    <link rel="stylesheet" href="{% static 'movies/movie.css' %}">
+{% endblock  %}
+
+{% block page_title %}
+    Film
+{% endblock page_title %}
+
+{% block content %}
+    {% comment %} Hlavicka {% endcomment %}
+    {% include "./includes/header.html" %}
+
+    <h1>Super film pro tento tyden</h1>
+    <p>{{movie_name | title}}</p>
+    {% if movie_description is not None %}
+        <p>{{movie_description}}</p>
+    {% else %}
+        <p>Popis filmu neni k dispozici</p>
+    {% endif %}
+{% endblock %}

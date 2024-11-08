@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block css_files %}
+    <link rel="stylesheet" href="{% static "movies/includes/header.css" %}">
+{% endblock  %}
+
+{% block page_title %}
+    Uvodni strana
+{% endblock page_title %}
+
+{% block content %}
+    {% comment %} Hlavicka {% endcomment %}
+    {% include "./includes/header.html" %}
+
+    <h1>Filmy</h1>
+    <ul>
+        {% for one_movie in movies_names %}
+            <li><a href="{% url 'movie_url' one_movie %}">{{one_movie}}</a></li>
+        {% endfor %}
+    </ul>
+{% endblock %}
+
