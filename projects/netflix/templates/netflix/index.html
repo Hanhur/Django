@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block css_files %}
+    <link rel="stylesheet" href="{% static 'netflix/index.css' %}">
+{% endblock css_files %}
+
+{% block title %}Netflix | Uvodni strana{% endblock title %}
+
+{% block content %}
+    <main>
+        <section id="logo">
+            <img src="{% static 'netflix/images/netflix-logo.png' %}" alt="">
+        </section>
+    </main>
+{% endblock content %}

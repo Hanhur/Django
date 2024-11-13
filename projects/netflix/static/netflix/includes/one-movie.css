@@ -1,0 +1,21 @@
+.one-movie 
+{
+    width: 250px;
+    height: 460px;
+    color: white;
+    border: 1px solid white;
+    text-align: center;
+    transition: .5s;
+    margin-top: 150px;
+    padding: 10px;
+}
+
+.one-movie:hover 
+{
+    transform: scale(1.05);
+}
+
+.one-movie img 
+{
+    width: 150px;
+}

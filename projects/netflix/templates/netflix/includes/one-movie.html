@@ -1,0 +1,8 @@
+{% load static %}
+
+<article class="one-movie">
+    <img src="{% static 'netflix/images/'|add:one_movie.image %}" alt="">
+    <h2>{{ one_movie.title }}</h2>
+    <h3>{{ one_movie.author }}</h3>
+    <p>{{ one_movie.content }}</p>
+</article>
