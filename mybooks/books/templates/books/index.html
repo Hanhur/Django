@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block title %}Vsechny knihy{% endblock title %}
+
+{% block content %}
+    <h1>Seznam vsech knih</h1>
+    {% for one_book in all_books %}
+        <li>{{one_book.title}} - pocet stran: {{one_book.pages}}, author: {{one_book.author}}</li>
+    {% endfor %}
+{% endblock content %}
