@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+
+{% block title %}Premianti školy{% endblock title %}
+
+{% block content %}
+    <a href="{% url 'home_page' %}">Úvodní strana</a>
+    {% for one_premiant in premiants_students %}
+        <p>{{ one_premiant.first_name }} {{ one_premiant.second_name }}</p>
+    {% endfor %}
+{% endblock content %}
