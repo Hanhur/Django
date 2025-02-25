@@ -7,11 +7,13 @@
         <ul>
             {% for song in all_songs %}
                 <li>
-                    <a href="{% url 'song_detail' song.id %}">
-                        {{ song.title }}
+                    <a href="{{song.get_absolute_url}}">
+                        {{ song.title }} - rating: {{ song.rating }}
                     </a>
                 </li>
             {% endfor %}
         </ul>
+        <p>Celkový počet písniček: {{ total_songs_number }}</p>
+        <p>Průměrný rating: {{ average_rating.rating__avg }}</p>
     </section>
 {% endblock content %}

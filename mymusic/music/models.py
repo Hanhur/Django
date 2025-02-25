@@ -10,11 +10,11 @@ class Music(models.Model):
     description = models.TextField(verbose_name='Popis')
     rating = models.FloatField(verbose_name='Rating')
     is_popular = models.BooleanField(verbose_name='Popularita')
-    # slug = models.SlugField(default='', null=False)
+    slug = models.SlugField(default='', null=False)
 
-    # def save(self, *args, **kwargs):
-    #     self.slug = slugify(self.title)
-    #     super().save(*args, **kwargs)
+    def save(self, *args, **kwargs):
+        self.slug = slugify(self.title)
+        super().save(*args, **kwargs)
 
-    # def get_absolute_url(self):
-    #     return reverse('song_detail', args=[self.slug])
+    def get_absolute_url(self):
+        return reverse('song_detail', args=[self.slug])
