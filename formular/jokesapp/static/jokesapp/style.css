@@ -1,0 +1,41 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wgh t@0,100..900;1,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&d isplay=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    background-color: #141414;
+}
+.form {
+    height: 100vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+}
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 5px;
+}
+/* form label {
+    margin-right: 5px;
+} */
+form input, form textarea {
+    outline: none;
+    width: 200px;
+    padding: 5px;
+}
+form input::placeholder, form textarea::placeholder {
+    font-family: "Roboto Condensed", serif;
+}
+form button {
+    background-color: #db0000;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    margin-top: 20px;
+}

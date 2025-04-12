@@ -1,0 +1,43 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'jokesapp/style.css' %}">
+    <title>Document</title>
+</head>
+<body>
+    <section class="form">
+        <form method="POST" action="/">
+            {% csrf_token %}
+            {% comment %} {{ jokeForm }} {% endcomment %}
+            {% comment %} {% if empty_username %}
+                <p>Formulář nebyl správně vyplněn</p>
+            {% endif %}
+            <label for="visitorname">Vashe name</label>
+            <input type="text" name="username" id="visitorname"> {% endcomment %}
+            {% for one_field in jokeForm %}
+                <div class="form-inputs {% if one_field.errors %}errors{% endif %}">
+                    {{ one_field.errors }}
+                    {{ one_field }}
+                </div>
+            {% endfor %}
+            {% comment %} <div class="form-inputs {% if jokeForm.user_name.errors %}errors{% endif %}">
+                {{ jokeForm.user_name.errors }}
+                {{ jokeForm.user_name }}
+            </div>
+            <div class="form-inputs {% if jokeForm.user_name.errors %}errors{% endif %}">
+                {{ jokeForm.joke_text.errors }}
+                {{ jokeForm.joke_text }}
+            </div>
+            <div class="form-inputs {% if jokeForm.user_name.errors %}errors{% endif %}">
+                {{ jokeForm.rating.errors }}
+                {{ jokeForm.rating }}
+            </div> {% endcomment %}
+            <button type="submit">Odeslat</button>
+        </form>
+    </section>
+</body>
+</html>
