@@ -10,6 +10,7 @@
 </head>
 <body>
     <section class="form">
+        <a href="{% url 'all-jokes-url' %}">Všechny vtipy</a>
         <form method="POST" action="/">
             {% csrf_token %}
             {% comment %} {{ jokeForm }} {% endcomment %}

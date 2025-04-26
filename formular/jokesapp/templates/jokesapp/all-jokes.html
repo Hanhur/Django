@@ -1,0 +1,23 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'jokesapp/all-jokes.css' %}">
+    <title>Document</title>
+</head>
+<body>
+    <section class="jokes">
+        <a href="{% url 'home-page' %}">Úvodní strana</a>
+        <h1>Všechny vtipy</h1>
+        {% for one_joke in all_our_jokes %}
+            <article class="one-joke">
+                <p>{{ one_joke.joke_text }}</p>
+                <p class='joke-author'><em>{{ one_joke.user_name }}</em></p>
+                <p>rating: {{ one_joke.rating }}</p>
+            </article>
+        {% endfor %}
+    </section>
+</body>
+</html>

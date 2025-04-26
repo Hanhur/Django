@@ -1,0 +1,32 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    background-color: #141414;
+    color: #fff;
+}
+.jokes {
+    text-align: center;
+}
+.jokes a {
+    text-decoration: none;
+    background-color: #db0000;
+    color: #fff;
+    padding: 5px 15px;
+    display: inline-block;
+    margin: 20px 0px;
+}
+.jokes h1 {
+    margin-bottom: 10px;
+}
+.one-joke {
+    width: 600px;
+    margin: 15px auto;
+    border-bottom: 2px solid #db0000;
+    padding: 10px;
+}
+.joke-author {
+    text-align: right;
+}
