@@ -3,13 +3,15 @@
 {% block title %}Uvodni strana{% endblock title %}
 
 {% block content %}
+    <a href="{% url 'all-books-url' %}">Všechny knihy</a>
     <h1>Knihy</h1>
     <form action="/" method='POST'>
         {% csrf_token %}
         <fieldset>
             <legend>Údaje o knize</legend>
-            Název knihy: <input type="text" name='book-name'>
-            Cena knihy: <input type="number" name='book-price'>
+            {{ bookForm }}
+            {% comment %} Název knihy: <input type="text" name='book-name'>
+            Cena knihy: <input type="number" name='book-price'> {% endcomment %}
         </fieldset>
         <button>Odeslat</button>
     </form>

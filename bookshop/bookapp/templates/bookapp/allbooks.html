@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block title %}Všechny knihy{% endblock title %}
+
+{% block content %}
+    <a href="{% url 'home_page' %}">Úvodní strana</a>
+    <h1>Všechny knihy</h1>
+    <table border="1">
+        <tr>
+            <th>Nazev knihy</th>
+            <th>Cena</th>
+            <th>Akce</th>
+        </tr>
+        {% for one_book in books %}
+            <tr>
+                <td>{{ one_book.name }}</td>
+                <td>{{ one_book.price }}</td>
+                <td>
+                    <a href="{% url 'delete-book' one_book.id %}"
+                        onclick="return confirm('Opravdu chcete smazat tuto knihu?')">
+                        Smazat
+                    </a> |
+                    <a href="{% url 'edit-book' one_book.id %}">Editovat</a>
+                </td>
+            </tr>
+        {% endfor %}
+    </table>
+{% endblock content %}
